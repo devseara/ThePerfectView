@@ -1,0 +1,22 @@
+THE PERFECT VIEW - LIGHT / DARK MODE SWITCH (1.0.2)
+
+1. Open cPanel File Manager > /home5/eitrorgi/perfect-view.
+2. Upload perfect-view-theme-toggle-update.zip and extract it into that folder.
+3. Replace public/index.html, public/styles.css, and public/client.js.
+4. Reload the website with Ctrl+Shift+R if you still see the previous version.
+
+No application restart, npm installation, or environment changes are needed.
+The archive contains only those three public files and these instructions.
+Your saved calendars, admin password, and server settings are not changed.
+
+The switch beside Manage changes between Light Mode (sun) and Dark Mode (moon).
+Dark is the default. The selected theme is saved in that visitor's browser and
+applies to both the shared dashboard and admin pages. It does not change anyone
+else's theme. If browser storage is disabled, the switch still works for the
+current page, but the choice may not survive a reload.
+
+The switch also works with the keyboard: Tab to it, then press Enter or Space.
+The floating + button remains visible and requires admin sign-in to add links.
+
+If the application is not installed yet, use the latest perfect-view-cpanel.zip
+and follow INSTALL-CPANEL.txt instead of applying this small update.

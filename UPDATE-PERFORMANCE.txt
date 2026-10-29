@@ -1,0 +1,39 @@
+THE PERFECT VIEW - AVAILABILITY AND PHONE UPDATE 1.1.1
+
+USE THIS FOR YOUR EXISTING CPANEL INSTALLATION
+
+1. In File Manager, open /home5/eitrorgi/perfect-view.
+2. Download a backup of your current files and data/calendars.json.
+3. Upload perfect-view-performance-update.zip into this same folder.
+4. Extract it there and replace the included files. Merge lib/ and public/;
+   do not delete either directory or create a nested perfect-view folder.
+5. In cPanel > Setup Node.js App, open perfect-view and click RESTART.
+   A restart is required because this update changes server code.
+6. Open https://view.eitr-origin.online/ and press Ctrl+Shift+R.
+   Select October 30, 2026 and Eastern Time, then check Marty.
+
+Leave Application root, app.js startup file, Production mode, ADMIN_PASSWORD,
+and PUBLIC_ORIGIN unchanged. No npm install or terminal commands are needed.
+
+This update contains no data directory, calendars.json, passwords, or sessions.
+Your existing list is preserved. Brandon is excluded from the new starter list;
+an existing saved Brandon row is not silently deleted by a code update.
+
+CHANGES
+- Four calendars per batch; completed rows appear immediately while others load.
+- Progress counter, shared caching, and persistent event lookups reduce waiting.
+- Valid empty single-day Calendly responses now display No times available.
+- HTTP status and timeout messages explain failed checks more clearly.
+- The + button appears only on /admin after signing in.
+- Light/Dark toggle, display-only times, duplicate detection, and delete
+  confirmation remain available.
+
+LOCAL VERIFICATION
+Marty's October 30 response returned 4:00, 4:15, 4:30, and 4:45 PM Eastern.
+Emily Anderson, David Floyd, and Steve Belko reported no times on that date.
+These are snapshots, not reserved slots. The cPanel upload is still required.
+If Marty still fails after restarting, the new row message should identify the
+HTTP error or timeout. His earlier generic message did not expose its cause.
+
+This cumulative package also includes the phone compatibility and touch-target
+fixes described in UPDATE-PHONE.txt.

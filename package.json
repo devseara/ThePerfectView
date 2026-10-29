@@ -1,0 +1,13 @@
+{
+  "name": "the-perfect-view",
+  "version": "1.1.1",
+  "private": true,
+  "description": "Shared public Calendly availability viewer for cPanel Node.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "node --test test/*.test.cjs"
+  }
+}

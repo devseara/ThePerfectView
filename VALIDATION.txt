@@ -1,0 +1,50 @@
+THE PERFECT VIEW 1.1.0 - VALIDATION
+Checked October 28, 2026 (America/New_York)
+
+AUTOMATED
+All 14 Node.js test groups passed. Coverage includes:
+- Link canonicalization, duplicate detection, foreign URL rejection.
+- Closed dates, valid sparse/empty responses, malformed data, publisher errors,
+  wrong-day data, timezones and distinct times in the DST repeated hour.
+- Persistence/restarts, empty saved lists, concurrent duplicate submissions.
+- Public access restrictions, private file routes, hidden original booking URLs.
+- Sessions, CSRF/origin checks, logout, password changes, secure cookies.
+- Shared refresh/cooldown and multiple independent workers.
+- 32-calendar stress fixture: fast results are readable before a slow request
+  finishes, concurrency never exceeds four, all calendars checked only once.
+- Adding one calendar reuses recent results for existing calendars.
+- A single timeout does not stop other calendars; HTTP restrictions pause checks.
+- Event metadata persists across provider restarts.
+- Progress-only HTTP polling makes no upstream requests.
+
+BROWSER
+- 31 disposable test calendars: observed 3 completed rows while the first
+  calendar remained delayed; all 31 completed automatically in later batches.
+- Public shared view hides +; signed-in admin reveals + and trash controls.
+- Returning to shared view while signed in hides + again.
+- Actual public October 30 results rendered in the updated local dashboard:
+  Marty Greenbaum: 4:00, 4:15, 4:30, 4:45 PM Eastern.
+  Emily Anderson, David Floyd, Steve Belko: no times available.
+- Marty public Calendly page shows no times on October 29 and offers October 30.
+  Its successful October 29 single-day response omits the day entirely; the
+  parser now recognizes this valid empty-response form.
+- Existing Light/Dark toggle and static, non-booking time spans are retained.
+- Screenshot perfect-view-oct30-verified.png shows the four affected calendars.
+
+LIMITS
+- Local Windows Node.js 24 tests do not measure cPanel performance. Application
+  targets Node.js 22+, including the user's cPanel Node.js 22.23.4.
+- cPanel upload/restart must be performed by the user. The earlier generic Marty
+  error did not provide enough information to prove its hosting-side cause.
+- Public Calendly endpoints are undocumented and may change or restrict access.
+- Availability changes after checking; no booking or owner messages are sent.
+- Existing production data is not included or replaced in deployment archives.
+
+PHONE UPDATE 1.1.1 - OCTOBER 29, 2026
+- All 18 test groups passed, including four new client compatibility checks.
+- Real client script ran with both AbortSignal.any and timeout absent.
+- Browser completed all 31 sample calendars with no page error.
+- Custom date November 3, timezone switching and public + visibility checked.
+- 320px and 390px layouts have no horizontal document overflow.
+- Search, date, timezone and Refresh controls measure at least 44px high.
+- Physical iPhone/iOS testing is not available locally.

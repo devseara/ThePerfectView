@@ -1,0 +1,125 @@
+THE PERFECT VIEW - CPANEL INSTALLATION
+Version 1.1.1 | Node.js 22 or newer | No npm dependencies
+
+YOUR EXISTING SETTINGS
+Application root: perfect-view
+Application URL: view.eitr-origin.online (leave its path field empty)
+Application startup file: app.js
+Application mode: Production
+Node.js: keep your working 22.23.4 selection
+
+1. BACK UP THE CURRENT FILES
+Open cPanel > File Manager > /home5/eitrorgi/perfect-view.
+Download a backup of the current application and data/calendars.json.
+For an existing installation, use UPDATE-PERFORMANCE.txt and the update ZIP.
+Keep this folder and the existing Node.js application; do not delete either.
+
+2. UPLOAD THE APPLICATION
+Upload perfect-view-cpanel.zip INTO /home5/eitrorgi/perfect-view.
+Extract it there. Allow replacement of app.js and package.json.
+The result should be:
+
+  perfect-view/
+    app.js
+    package.json
+    lib/
+      server.cjs
+      store.cjs
+      calendly.cjs
+      availability.cjs
+    public/
+      index.html
+      styles.css
+      client.js
+    data/
+      .htaccess
+    test/
+    INSTALL-CPANEL.txt
+    README.txt
+
+app.js must sit directly in perfect-view, not another nested perfect-view folder.
+Do not put these files into public_html or the subdomain's document-root folder.
+Old check-public.cjs/check-hosting.cjs files can stay; the app does not run them.
+
+3. SET YOUR ADMIN PASSWORD
+Go to cPanel > Setup Node.js App > your existing perfect-view application.
+Keep Application mode set to Production.
+Under Environment variables, choose ADD VARIABLE:
+
+  Name:  ADMIN_PASSWORD
+  Value: a unique password or passphrase of your choice, at least 16 characters
+
+Enter the value yourself. Do not send it in chat or include it in screenshots.
+Enter the actual password without adding quotation marks around it.
+
+Add a second variable:
+
+  Name:  PUBLIC_ORIGIN
+  Value: https://view.eitr-origin.online
+
+Use that exact HTTPS address without a trailing slash.
+Click SAVE, then RESTART.
+No Run NPM Install, Chromium download, cron job, or terminal command is needed.
+
+4. OPEN YOUR WEBSITE
+Shared view: https://view.eitr-origin.online/
+Admin page:  https://view.eitr-origin.online/admin
+
+The HTTPS address must have a valid certificate. If the browser reports a
+certificate warning, fix the subdomain's SSL certificate in cPanel or with your
+host before signing in. Production session cookies require HTTPS.
+
+At /admin, sign in using the ADMIN_PASSWORD you entered in cPanel.
+On a fresh installation only, the starter list contains Alena, Ben, and Bill.
+Existing saved calendars are preserved. Brandon is not seeded.
+Use the + button to add your remaining links. Duplicate event links are rejected
+even if tracking parameters, selected dates, www, or time-specific suffixes differ.
+
+The trash icon removes a consultant from the shared list after the Yes/No prompt.
+It does not delete anything from Calendly. The + and trash icons appear only
+on /admin after signing in. The shared view hides these controls.
+Send friends the shared-view URL. Their chosen date, search, filter, and timezone
+do not change anyone else's view. Only the consultant list is shared.
+The sun/moon switch beside Manage changes Light/Dark Mode for that visitor's
+browser. Dark is the default, and the chosen mode is remembered after reloading.
+
+REFRESH
+Refresh checks the selected date and timezone. Visitors share recent results.
+New checks for the same date/timezone are allowed after 30 seconds; normal page
+loads can reuse a result up to 60 seconds old. The page shows when it was checked.
+The server checks up to four calendars per request. Results appear as individual
+checks finish, with a checked/total progress indicator. A slow calendar no longer
+holds back all completed rows. Recent results are reused when adding a link.
+Restrictions trigger a five-minute pause. Errors are shown as unknown availability.
+Times are display-only and do not open Calendly or create bookings.
+
+IF YOU STILL SEE THE OLD STARTUP PAGE
+- Confirm app.js was replaced in the Application root perfect-view.
+- Confirm startup file app.js and Application URL view.eitr-origin.online.
+- Click SAVE and RESTART, then reload the browser.
+
+IF SIGN-IN DOES NOT WORK
+- Confirm ADMIN_PASSWORD has at least 16 characters and no extra quote marks.
+- Confirm Production mode, the HTTPS URL, and matching PUBLIC_ORIGIN.
+- Restart after changing environment variables.
+- After 20 sign-in attempts in 10 minutes, wait for the limit to expire.
+- Check server errors in cPanel; do not post environment values/passwords.
+
+IF AVAILABILITY SAYS NO TIMES
+That is a successful response reporting no openings for the selected day.
+Try Tomorrow or another date. "Couldn't check" means an error, not no openings.
+
+BACKUPS AND UPDATES
+The server automatically creates data/calendars.json for your shared list.
+Keep a backup of that file, especially before updating or moving hosting.
+The data folder also contains private session and cache files; keep it private.
+Future code updates must preserve data/calendars.json and the data folder.
+This ZIP contains no saved consultant data, passwords, sessions, or cached times.
+To change your password later, update ADMIN_PASSWORD in cPanel and restart.
+Existing sessions become invalid after a password change.
+
+LIMITATION
+Availability is read from undocumented endpoints used by Calendly's public
+booking pages. Calendly can change or restrict them; the app may need maintenance.
+There are no booking submissions or owner messages. Calendly may log public reads;
+this is not a guarantee of invisible access. Availability is a snapshot, not a hold.

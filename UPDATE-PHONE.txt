@@ -1,0 +1,36 @@
+THE PERFECT VIEW - PHONE COMPATIBILITY UPDATE 1.1.1
+
+WHY THE PHONE FAILED
+The previous refresh code required AbortSignal.any and AbortSignal.timeout.
+Some iPhone browsers do not implement these APIs, so the check stopped before
+requesting availability. This update uses AbortController and ordinary timers.
+
+INSTALL ON YOUR EXISTING 1.1.0 CPANEL APP
+1. Open cPanel File Manager > /home5/eitrorgi/perfect-view.
+2. Back up public/index.html, public/client.js, and public/styles.css.
+3. Upload perfect-view-phone-update.zip into perfect-view and extract it there.
+4. Replace the included files, merging the public folder into the existing one.
+5. Reload the website on your phone. If an old tab still shows the same error,
+   close that tab and open https://view.eitr-origin.online/?v=1.1.1 again.
+
+The three website files must land in perfect-view/public, not in a nested
+perfect-view folder. No Node.js restart, npm install, or password change is
+needed for this update. The server reads these public files for each request.
+
+Your saved calendar list, availability server, and admin settings are preserved.
+This ZIP contains no data files. The + button still appears only in admin view.
+
+PHONE CHANGES
+- Calendar checks, progress polling, and Refresh work without the missing APIs.
+- Changing date/timezone still cancels obsolete requests; deadlines remain active.
+- Search has one search icon, with iPhone native decoration suppressed.
+- Larger touch targets, 16px form text, and wrapping layouts for small screens.
+- Existing Dark/Light Mode is retained.
+
+VERIFICATION
+18 automated tests passed, including simulated absence of both static APIs,
+timeouts during response reading, cancellation, and timer/listener cleanup.
+The local browser test used 31 sample calendars with both APIs disabled.
+Responsive layout was checked at 320 and 390 CSS pixels without horizontal
+page overflow. This simulates the reported failure; it is not a physical iPhone
+test. The phone screenshot in chat contains clearly named preview calendars.

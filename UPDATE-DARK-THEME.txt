@@ -1,0 +1,27 @@
+THE PERFECT VIEW - DARK THEME AND VISIBLE + BUTTON
+
+This small update is for the already-installed The Perfect View application.
+It contains only three files under public/ and these instructions.
+It does not include your shared calendar list, passwords, or server data.
+
+1. In cPanel File Manager, open /home5/eitrorgi/perfect-view.
+2. Upload perfect-view-dark-update.zip into that folder and extract it there.
+3. Allow replacement of public/index.html, public/styles.css, public/client.js.
+4. Reload your website. If the old design remains, press Ctrl+Shift+R.
+
+Do not delete perfect-view or its data folder. No password or environment change,
+npm installation, or application restart is required for this front-end update.
+
+CHANGES
+- Always dark, even when your computer or phone uses a light theme.
+- Calendar icon, dark panels, purple accents, and compact rows matching the reference.
+- The + button is fixed at the bottom right and visible on the shared page.
+- Clicking + opens the admin area. If necessary, sign in using your existing
+  admin password; the Add a calendar form then opens automatically.
+- Adding and deleting still require admin authentication. The shared page does
+  not allow anonymous visitors to change the consultant list.
+- Live availability and duplicate checks remain connected.
+- Check timestamps remain in the footer and the consultant detail tooltip.
+
+If the full application has not been installed yet, use the updated complete
+perfect-view-cpanel.zip and follow INSTALL-CPANEL.txt instead of this update ZIP.
